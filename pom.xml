@@ -37,12 +37,6 @@
 			<version>0.9</version>
 		</dependency>
 	</dependencies>
-	<repositories>
-		<repository>
-			<id>neuroph.sourceforge.net</id>
-			<url>http://neuroph.sourceforge.net/maven2/</url>
-		</repository>
-	</repositories>
 	<build>
 		<plugins>
 			<plugin>
