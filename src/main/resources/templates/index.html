@@ -1,40 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<link
-	href="http://cdn.jsdelivr.net/webjars/bootstrap/3.2.0/css/bootstrap.min.css"
-	th:href="@{/webjars/bootstrap/3.2.0/css/bootstrap.min.css}"
-	rel="stylesheet" media="screen" />
-	<link href="../static/css/geuron.css"
-          th:href="@{/css/geuron.css}"
-          rel="stylesheet" media="screen" />
-<script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.1/jquery.min.js"
-	th:src="@{/webjars/jquery/2.1.1/jquery.min.js}"></script>
-<meta charset="ISO-8859-1"></meta>
-<title>Geuron</title>
-</head>
+<div th:replace="fragments/head :: head"></div>
 <body>
-    <!-- Static navbar -->
-    <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Geuron@faithfull.me</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+    <div th:replace="fragments/header :: header"></div>
 	<div class="jumbotron">
 		<div class="container">
 			<h1>Geuron</h1>
