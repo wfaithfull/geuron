@@ -2,7 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <div th:replace="fragments/head :: head"></div>
 <head>
+
 <link th:href="@{/css/app.css}" rel="stylesheet" media="screen" />
+
 <script th:src="@{/js/geuron.js}"></script>
 </head>
 
@@ -11,10 +13,16 @@
 	<div class="container">
 		<div class="row">
 			<h1 class="page-header" th:text="${heading}">Dashboard</h1>
-			<form id="searchTerms">
+			<form id="searchTerms" class="form-inline text-center">
 				<input type="search" class="form-control" id="searchTermsInput" placeholder="Search images..."/>
+				<button type="submit" class="btn btn-default">Search</button>
 			</form>
+		</div>
+		<div class="row">
+			<div class="photoset-grid-basic" id="grid">
+			</div>
 		</div>
 	</div>
 </body>
+<script th:src="@{/js/packages/jquery.photoset-grid.min.js}"></script>
 </html>
