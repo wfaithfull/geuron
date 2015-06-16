@@ -1,8 +1,4 @@
 $(function() {
-	//google.load("search", "1");
-	//imageSearch = new google.search.ImageSearch();
-	//imageSearch.setSearchCompleteCallback(this, getThumbs, null);
-	
 	$('#searchTerms').submit(function(args){
 		$('#grid').empty();
 		getThumbs($('#searchTermsInput').val(), 0, 8);
