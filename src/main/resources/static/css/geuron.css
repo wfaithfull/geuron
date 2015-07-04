@@ -2,3 +2,18 @@
 .navbar {
 	margin-bottom: 0px;
 }
+
+.selected-thumb {
+	border: 10px solid #8AC007;
+}
+
+img {
+	border-radius: 50px;
+}
+
+#grid {
+	margin: 20px;
+	padding: 5px;
+	background-color: #e7e7e7;
+	border-radius: 50px;
+}
