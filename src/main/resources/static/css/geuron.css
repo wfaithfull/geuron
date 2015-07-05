@@ -2,3 +2,29 @@
 .navbar {
 	margin-bottom: 0px;
 }
+
+.selected-thumb {
+	outline: 10px solid #8AC007;
+}
+
+.thumb {
+	margin: 15px;
+	width:18%;
+}
+
+.top10 {
+	margin-top: 10px;
+}
+
+.top20 {
+	margin-top: 20px;
+}
+
+.grid {
+	margin: auto;
+	padding: 5px;
+	background-color: #e7e7e7;
+	border-radius: 20px;
+	overflow-y:auto;
+	min-height: 300px;
+}

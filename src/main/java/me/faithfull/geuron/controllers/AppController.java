@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -23,7 +24,7 @@ public class AppController {
 	@Autowired
 	private ImageService imageService;
 
-	@RequestMapping(value="/app/images/{terms}", produces="application/json")
+	@RequestMapping(value="/app/images/{terms}", produces="application/json", method=RequestMethod.GET)
 	@ResponseBody
 	String images(@PathVariable("terms")String terms) throws JsonParseException, JsonMappingException, IOException {
 		Optional<JSONArray> possibleJSON = imageService.getImages(terms, 0);
@@ -35,7 +36,7 @@ public class AppController {
 		return mapper.writeValueAsString(thumbs);
 	}
 	
-	@RequestMapping(value="/app/images/{terms}/{page}", produces="application/json")
+	@RequestMapping(value="/app/images/{terms}/{page}", produces="application/json", method=RequestMethod.GET)
 	@ResponseBody
 	String images(@PathVariable("terms")String terms, @PathVariable("page")int page) throws JsonParseException, JsonMappingException, IOException {
 		Optional<JSONArray> possibleJSON = imageService.getImages(terms, page);
