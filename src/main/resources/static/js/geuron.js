@@ -1,28 +1,8 @@
 $(function() {
 	
-	$('.photoset-grid-custom').photosetGrid({
-		  // Set the gutter between columns and rows
-		  gutter: '5px',
-		  // Manually set the grid layout
-		  layout: '21',
-		  // Wrap the images in links
-		  highresLinks: true,
-		  // Asign a common rel attribute
-		  rel: 'print-gallery',
-
-		  onInit: function(){},
-		  onComplete: function(){
-		    // Show the grid after it renders
-		    $('.photoset-grid-custom').attr('style', '');
-		  }
-		});
-	
 	$('#searchTerms').submit(function(args) {
-		$('#grid').empty();
+		$('#searchGrid').empty();
 		getThumbs($('#searchTermsInput').val(), 0, 8);
-		$("#grid").on('click', 'img.thumb', function() {
-			selectThumb(this);
-		});
 		return false;
 	})
 })
@@ -34,24 +14,24 @@ var chosenThumbs = [];
  * concrete image search service.
  */
 function getThumbs(searchTerms, start, batchSize) {
-
-	console.log("api request... " + searchTerms);
 	var max = 50;
 	$.ajax({
 		type : 'GET',
 		url : window.location.href.replace(/\?.*/,'') + "/images/" + searchTerms.toString() + "/"
 				+ start.toString(),
 		success : function(result) {
-			console.log(result);
 
 			for (i = 0; i < result.length; i++) {
 				thumb = result[i];
-				$("#grid").append($("<img>", {
+				$("#searchGrid").append($("<img>", {
 					src : thumb.tbUrl,
 					id : thumb.imageId,
 					class : "thumb"
 				}));
-
+				
+				$('#' + thumb.imageId).click(function() {
+					selectThumb(this)
+				})
 			}
 
 			if (start < max) {
@@ -68,9 +48,15 @@ function getThumbs(searchTerms, start, batchSize) {
  * TODO: Add / remove chosen thumb to / from collection.
  */
 function selectThumb(element) {
-	if ($(element).hasClass("selected-thumb")) {
-		$(element).removeClass("selected-thumb")
+	if ($('#trainingGrid').find(element).length) {
+		$('#trainingGrid > #' + element.id).remove();
+		
+		var index = chosenThumbs.indexOf(element.src);
+		if(index != -1) {
+			chosenThumbs.splice(index, 1);
+		}
 	} else {
-		$(element).addClass("selected-thumb");
+		$('#trainingGrid').append(element);
+		chosenThumbs.push(element.src)
 	}
 }

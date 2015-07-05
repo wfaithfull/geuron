@@ -4,16 +4,27 @@
 }
 
 .selected-thumb {
-	border: 10px solid #8AC007;
+	outline: 10px solid #8AC007;
 }
 
-img {
-	border-radius: 50px;
+.thumb {
+	margin: 15px;
+	width:18%;
 }
 
-#grid {
-	margin: 20px;
+.top10 {
+	margin-top: 10px;
+}
+
+.top20 {
+	margin-top: 20px;
+}
+
+.grid {
+	margin: auto;
 	padding: 5px;
 	background-color: #e7e7e7;
-	border-radius: 50px;
+	border-radius: 20px;
+	overflow-y:auto;
+	min-height: 300px;
 }
