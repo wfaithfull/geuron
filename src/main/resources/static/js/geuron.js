@@ -39,7 +39,7 @@ function getThumbs(searchTerms, start, batchSize) {
 	var max = 50;
 	$.ajax({
 		type : 'GET',
-		url : window.location.href + "/images/" + searchTerms.toString() + "/"
+		url : window.location.href.replace(/\?.*/,'') + "/images/" + searchTerms.toString() + "/"
 				+ start.toString(),
 		success : function(result) {
 			console.log(result);
