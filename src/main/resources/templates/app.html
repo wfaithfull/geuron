@@ -4,7 +4,7 @@
 <head>
 
 <link th:href="@{/css/app.css}" rel="stylesheet" media="screen" />
-
+<script th:src="@{/js/page.js}"></script>
 
 </head>
 
@@ -14,31 +14,52 @@
 		<div class="row">
 			<h1 class="page-header" th:text="${heading}">Dashboard</h1>
 		</div>
-		<div class="row">
-			<div class="jumbotron">
-				<div class="container">
-					<h3>Instructions</h3>
-					<ol>
-						<li>Search for images using the left panel</li>
-						<li>Click images to add them to the training set</li>
-						<li>Click 'Continue'</li>
-					</ol>	
-					<a class="btn btn-lg btn-success pull-right" th:href="@{/app}">Continue</a>
+		
+		<!-- Thumbnail selection for training set data -->
+		<div class="container transient" id="step1">
+			<div class="row">
+				<div class="jumbotron">
+					<div class="container">
+						<h3>Instructions</h3>
+						<ol>
+							<li>Search for images using the left panel</li>
+							<li>Click images to add them to the training set</li>
+							<li>Click 'Continue'</li>
+						</ol>
+						<a class="btn btn-lg btn-success pull-right" onclick="changeStep('step2')">Continue</a>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row">
+			<div class="row">
 
-			<form id="searchTerms" class="form-inline text-center col-md-5">
-				<input type="search" class="form-control" id="searchTermsInput"
-					placeholder="Search images..." />
-				<button type="submit" id="btn-search" class="btn btn-default">Search</button>
-			</form>
+				<form id="searchTerms" class="form-inline text-center col-md-5">
+					<input type="search" class="form-control" id="searchTermsInput"
+						placeholder="Search images..." />
+					<button type="submit" id="btn-search" class="btn btn-default">Search</button>
+				</form>
+			</div>
+			<div class="row top20">
+				<div class="grid col-md-5" id="searchGrid"></div>
+				<div class="col-md-2"></div>
+				<div class="grid col-md-5" id="trainingGrid"></div>
+			</div>
 		</div>
-		<div class="row top20">
-			<div class="grid col-md-5" id="searchGrid"></div>
-			<div class="col-md-2"></div>
-			<div class="grid col-md-5" id="trainingGrid"></div>
+		
+		<!-- Training parameter selection -->
+		<div class="container transient" id="step2">
+			<div class="row">
+				<div class="jumbotron">
+					<div class="container">
+						<h3>Instructions</h3>
+						<ol>
+							<li>Choose the training parameters</li>
+							<li>Click 'Continue'</li>
+						</ol>
+						<a class="btn btn-lg btn-success pull-left" onclick="changeStep('step1')">Back</a>
+						<a class="btn btn-lg btn-success pull-right" onclick="changeStep('step3')">Continue</a>
+					</div>
+				</div>
+			</div>	
 		</div>
 	</div>
 </body>
