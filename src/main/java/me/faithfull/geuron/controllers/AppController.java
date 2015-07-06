@@ -3,7 +3,7 @@ package me.faithfull.geuron.controllers;
 import java.io.IOException;
 import java.util.Optional;
 
-import me.faithfull.geuron.imagesearch.GoogleThumb;
+import me.faithfull.geuron.imagesearch.Thumbnail;
 import me.faithfull.geuron.imagesearch.ImageService;
 
 import org.codehaus.jettison.json.JSONArray;
@@ -32,7 +32,7 @@ public class AppController {
 		JSONArray images = possibleJSON.get();
 		
 		ObjectMapper mapper = new ObjectMapper();
-		GoogleThumb[] thumbs = mapper.readValue(images.toString(), GoogleThumb[].class);
+		Thumbnail[] thumbs = mapper.readValue(images.toString(), Thumbnail[].class);
 		return mapper.writeValueAsString(thumbs);
 	}
 	
@@ -44,7 +44,7 @@ public class AppController {
 		JSONArray images = possibleJSON.get();
 		
 		ObjectMapper mapper = new ObjectMapper();
-		GoogleThumb[] thumbs = mapper.readValue(images.toString(), GoogleThumb[].class);
+		Thumbnail[] thumbs = mapper.readValue(images.toString(), Thumbnail[].class);
 		return mapper.writeValueAsString(thumbs);
 	}
 }

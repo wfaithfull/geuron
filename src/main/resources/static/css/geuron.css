@@ -28,3 +28,7 @@
 	overflow-y:auto;
 	min-height: 300px;
 }
+
+.transient {
+	display: none;
+}

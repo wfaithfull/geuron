@@ -1,3 +1,11 @@
+/*
+ * geuron.js
+ * Geuron API specific functions and helpers.
+ */
+
+/*
+ * Defines form submit action for search box.
+ */
 $(function() {
 	
 	$('#searchTerms').submit(function(args) {
@@ -7,6 +15,7 @@ $(function() {
 	})
 })
 
+// Array of thumbnail URLs to be passed to API.
 var chosenThumbs = [];
 
 /*
