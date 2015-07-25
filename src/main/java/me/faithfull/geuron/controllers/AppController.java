@@ -18,12 +18,21 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/*
+ * Controller class for the basic application functions.
+ */
 @Controller
 public class AppController {
 	
 	@Autowired
 	private ImageService imageService;
 
+	/*
+	 * The reason these calls are translated into server-side GET
+	 * requests rather than JavaScript calls to the relative APIs
+	 * is so that the implementation of imageService can be swapped
+	 * out, chopped and changed with ease.
+	 */
 	@RequestMapping(value="/app/images/{terms}", produces="application/json", method=RequestMethod.GET)
 	@ResponseBody
 	String images(@PathVariable("terms")String terms) throws JsonParseException, JsonMappingException, IOException {
