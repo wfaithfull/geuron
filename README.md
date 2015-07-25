@@ -8,4 +8,4 @@ Geuron is a Java [Spring Boot](http://projects.spring.io/spring-boot/) applicati
 
 I am developing this using a git-flow workflow. This means that master should contain stable releases, and develop is bleeding-edge.
 
-The latest stable release is deployed at [apps.faithfull.me/geuron](http://apps.faithfull.me/geuron) via jenkins.
+The latest stable release is deployed at [apps.faithfull.me/geuron](http://apps.faithfull.me/geuron) via jenkins (If I haven't borked tomcat, which happens fairly often!).
